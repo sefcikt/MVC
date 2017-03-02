@@ -1,0 +1,48 @@
+﻿@model Lab.Models.Person
+
+@{
+    ViewData["Title"] = "Edit Person Page";
+}
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<h2>Edit a Person</h2>
+
+<form action="EditPerson" method="post" class="form-horizontal">
+    <input type="hidden" asp-for="@Model.PersonID" />
+    <div class="form-group">
+        <label class="control-label col-md-2" asp-for="FirstName">First Name</label>
+        <div class="col-md-10">
+            <input class="form-control" asp-for="FirstName" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label class="control-label col-md-2" asp-for="LastName">Last Name</label>
+        <div class="col-md-10">
+            <input class="form-control" asp-for="LastName" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label class="control-label col-md-2" asp-for="BirthDate">Date of Birth</label>
+        <div class="col-md-10">
+            <input class="form-control" type="date" asp-for="BirthDate" />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+        <br />
+        <br />
+        <br />
+        <input type="submit" value="Save" asp-route-id="@Model.PersonID"  class="col-md-offset-3" />
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

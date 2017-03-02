@@ -1,0 +1,31 @@
+﻿@model List<Lab.Models.Person>
+
+
+@{
+    ViewData["Title"] = "Person";
+}
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<h1>Person List</h1>
+
+<table class="table">
+    <tr>
+        <td><h2>Person ID</h2></td>
+        <td><h2>First Name</h2></td>
+        <td><h2>Last Name</h2></td>
+        <td><h2>Date of Birth</h2></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PersonID</td>
+            <td><a asp-action="Details" asp-route-id="@item.PersonID">@item.FirstName</a></td>
+            <td>@item.LastName</td>
+            <td>@item.BirthDate.ToString("MM/dd/yyyy")</td>
+        </tr>
+    }
+</table>
